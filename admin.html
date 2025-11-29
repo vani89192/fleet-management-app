@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini fleet-Admin</title>
+    <style>
+        :root{--accent:#0066cc;--muted:#666;--card:#fff}
+        body{margin: 0; font-family: inter,segoe UI,arial;background: #f4f6fb;color: #222}
+        header{background: linear-gradient(90deg,#fff,#f8fbff);padding: 14px 20px;display: flex;align-items: center;gap: 12px;border-bottom: 1px solid #e6e9f2}
+        header h2{margin: 0;color: var(--accent)}
+        .container{display: grid;grid-template-columns: 260px 1fr;gap: 18px;padding: 20px;align-items: start;min-height: calc(100vh-66px)}
+        aside{background: var(--card);padding: 16px;border-radius: 10px;box-shadow: 0 6px 20px rgba(20,20,40,0.04)}
+        nav ul{list-style: none;padding: 0;margin: 0}
+        nav li{padding: 8px 6px;border-radius: 6px;cursor: pointer;color: var(--muted);margin-bottom: 6px}
+        nav li.active{background: #eef6ff;color: var(--accent);font-weight: 600}
+        
+        main{background: var(--card);padding: 16px;border-radius: 10px;box-shadow: 0 6px 20px rgba(20,20,40,0.04)}
+        .section{margin-bottom: 18px}
+        label{display: block;font-size: 13px;margin-bottom:6px ;color: #333}
+        input[type="text"],select{width: 100%;padding: 8px;border:1px solid #e6e9f2;border-radius: 6px}
+        .form-grid{display: grid;grid-template-columns: 1fr 1fr;gap: 10px}
+        button{background: var(--accent);color: #fff;border: 0;padding: 8px 10px ; border-radius: 6px; cursor: pointer}
+        .muted{color: var(--muted);font-size: 13px}
+        .cards{display: grid;grid-template-columns: repeat(Auto-fill,minmax(240px,1fr));gap:12px}
+        .meta{display: flex;justify-content: space-between;align-items: center;margin-bottom: 8px}
+        .action{display: flex;gap: 6px}
+        .actions button{padding:6px 8px; font-size: 13px}
+        .btn-danger{background: #e74c3c}
+        .btn-secondary{background: #eee;color: #222;}
+        .filter-row{display:flex;gap:8px;align-items: center;margin-bottom: 10px}
+        .empty{padding: 18px;text-align: center;color: var(--muted);border: 1px dashed #e9eef9;border-radius: 8px}
+        .small{font-size: 13px;color: var(--muted)}
+    </style>
+</head>
+<body>
+    <header>
+        <h2>Mini Fleet-Admin Dashnoard</h2>
+        <div style="magin-left:auto">
+            <button id="logout" class="btn-secondary">logout</button>
+        </div>
+    </header>
+    <div class="container" role="application">
+        <aside>
+            <nav>
+                <ul>
+                    <li class="active">Fleet Card</li>
+                    <li>Fleet Form</li>
+                    <li class="small" style="margin-top: 10px">Tip:Use filters to show specifiv vehivles</li>
+                </ul>
+            </nav>
+            <hr style="margin: 12px 0">
+        <div class="section">
+            <label for="filterCategory">Category</label>
+            <select id="filterCategory">
+                <option value="all">All</option>
+                <option value="car">car</option>
+                <option value="Truck">Truck</option>
+                <option value="Bus">Bus</option>
+            </select>
+
+            <label style="margin-top: 10PX" for="filterAvail">Availability</label>
+            <select id="filterAvail">
+                <option value="all">All</option>
+                <option value="Available">Available</option>
+                <option value="UnAvailable">UnAvailable</option>
+            </select>
+
+            <button style="margin-top: 12px" id="clearFilter" class="btn-secondary">Clear Filter</button>
+        </div>
+        </aside>
+
+        <main>
+            <section class="section">
+                <h3 style="margin-top: 0">Add Fleet (FleetForm)</h3>
+                <form id="FleetForm" autocomplete="off">
+                    <div class="form-grid">
+                        <div>
+                            <label>Registration No.</label>
+                            <input id="reg " type="text" placeholder="e.g KA01AB1234"required>
+                        </div>
+                        <div>
+                            <label>Category</label>
+                    <select id="Category">
+                        <option value="">select Category</option>
+                        <option >Car</option>
+                        <option >Truck</option>
+                        <option >Bus</option>
+                    </select>
+                        </div>
+
+                        <div>
+                            <label>Driver Name</label>
+                            <input id="driver" type="text" placeholder="Driver full name">
+                        </div>
+                        <div>
+                            <label>Availability</label>
+                            <select id="Availability">
+                                <option>Available</option>
+                                <option>UnAvailable</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 12px; display: flex;gap: 8px">
+                        <button type="submit">Add Fleet</button>
+                        <button id="resetForm" type="button"
+                        class="btn-secondary">Reset</button>
+                        <div style="margin-left: auto;"
+                    </div>
+                </form>    
+            </section>
+        </main>
+    </div>
+    </div>
+</body>
+</html>
